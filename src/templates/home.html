@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-5 text-center">
+        {% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p>{{ message }}</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+        <div class="card card-body text-center">
+             <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+<!-- Custom styles for this template -->
+<link href="signin.css" rel="stylesheet">
+</head>
+
+<h1>Bienvenido!!, {{ current_user.fullname }}</h1>
+<h2>{{ current_user.email }}</h2>
+
+<a class="btn btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+
+        </div>
+
+    </div>
+
+{% endblock %}
